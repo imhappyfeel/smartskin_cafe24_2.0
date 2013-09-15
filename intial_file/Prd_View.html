@@ -1,0 +1,175 @@
+﻿<body style="background-color:#{{$aSkinCfg.item_config_bgcolor}};">
+    <div id="wrap">
+    {{$sNavi}}
+        <div id="container">
+            <div id="prdBasic">
+                <div class="mTitle">
+                    <h2>상품상세정보</h2>
+                </div>
+                <div class="mOverview">
+                    <!-- SNS 상품홍보 -->
+                    {{$sSnsButton}}
+                    <!-- //SNS 상품홍보 -->
+                    <div class="preview">
+                        <p class="item_name za" style="{{$aSkinCfg.item_name_font_weight}}color:#{{$aSkinCfg.item_name_font_color}}; padding:0 0 5px 0;text-align: center">{{$aPrd.product_name}} <img src="http://img.echosting.cafe24.com/ec/mobile20/ico_detail.png" width="16" height="16" onclick="$('prdDetailLayer').show();"></p>
+                    </div>
+
+                    <div class="prdImgView">
+                        <div style="display:{{$sPrevNextVisible}}">
+                          <a href="#none" class="prev null" style="display:{{$aPrevOffVisible}}" onclick="return false;">이전 상품 없음</a>
+                           <a href="#none" class="prev" onclick="goPrevNextPrd('{{$aPrevNo}}', '{{$aCateNo}}');" style="display:{{$aPrevOnVisible}}">이전 상품</a>
+                        </div>
+                        <p class="prdImg">
+                            <a href="#none" onclick="showDetailImage(this);" id="detailImage" rel="1"><img src="{{$aPrd.image_medium}}" alt="" onError="this.src='http://img.cafe24.com/images/ec_front_m/common/product_03.gif';" alt=""></a>
+                        </p>
+
+                        <div style="display:{{$sPrevNextVisible}}">
+                            <a href="#none" class="next" onclick="goPrevNextPrd('{{$aNextNo}}', '{{$aCateNo}}');" style="display:{{$aNextOnVisible}}">다음 상품</a>
+                            <a href="#none" class="next null" style="display:{{$aNextOffVisible}}" onclick="return false;">다음 상품 없음</a>
+                        </div>
+                    </div>
+                    <div class="prdThumb">
+                        <ul>
+                            {{$sPrdImages.prdImgData}}
+                        </ul>
+                    </div>                
+                    <div>
+
+                <p class="zb price2" style="{{$aSkinCfg.item_price_font_weight}}color:#{{$aSkinCfg.item_price_font_color}};">판매가
+                <span id="PrdPriceMain" name="PrdPriceMain" style="{{$aPrd.sMobileStrike}}">{{$aPrd.product_price_main}}</span></p>
+                <span id="sMobileOff" style="display:{{$aPrd.sMobileSaleVisible}};">
+                        <p class="zb price2" style="{{$aSkinCfg.item_sale_price_font_weight}};color:#{{$aSkinCfg.item_sale_price_font_color}};">
+                            할인 판매가<span id="PrdPriceMobile" name="PrdPriceMobile">{{$aPrd.product_mobile_price}}</span>
+                        </p>
+                        <p style="display:{{$aPrd.sMobileSaleTextVisible}}">(모바일 할인금액 <span id="PrdPriceMobileOff" name="PrdPriceMobileOff" >{{$aPrd.product_mobile_sale_price}}</span>이 포함되어 있습니다.)</p>
+                </span>
+<p class="zb price2" style="{{$aSkinCfg.item_price_font_weight}}color:#{{$aSkinCfg.item_general_font_color}};display:{{$sNaverMileageDisplay}}">{{$sNaverMileageTitle}} {{$sNaverMileageSaveRate}}</p>
+                </div>
+
+                <!-- 기본정보 -->
+                <form name="frmPrd" id="frmPrd" method="post" action="{{$formAction}}">
+                {{$sHidden}}
+                <ul class="dt_option">
+                    <li style="border-color:#{{$aSkinCfg.item_preview_line_color}};display:none;">
+                        <table cellpadding="0" cellspacing="0">
+                        <tr>
+                            <th class="za" style="color:#{{$aSkinCfg.item_general_font_color}};"><p><b>판매가</b></p></th>
+                            <td class="price" style="color:#{{$aSkinCfg.item_emphatic_font_color}};"><span id="PrdPriceSub" name="PrdPriceSub">{{$aPrd.product_price_sub}}</span></td>
+                        </tr>
+                        </table>
+                    </li>
+                    <li style="border-color:#{{$aSkinCfg.item_preview_line_color}};display:{{$sShipDisplay}};">
+                        <table cellpadding="0" cellspacing="0">
+                        <tr style="display:{{$sShipPriceDisplay}};">
+                            <th class="za" style="color:#{{$aSkinCfg.item_general_font_color}};"><p>배송비</p></th>
+                            <td>{{$aPrd.shipPrice}}</td>
+                        </tr>
+                        <tr style="display:{{$sShipSelectDisplay}};">
+                            <th class="za" style="color:#{{$aSkinCfg.item_general_font_color}};"><p>배송비결제</p></th>
+                            <td>{{$shipPricePaySelectBox}}</td>
+                        </tr>
+                        </table>
+                    </li>
+                    <li style="display:{{$sOptionDisplay}};border-color:#{{$aSkinCfg.item_preview_line_color}};">
+                        <table cellpadding="0" cellspacing="0">
+                            {{$sOptionLoop}}
+                        </table>
+                    </li>
+                    <li style="border-color:#{{$aSkinCfg.item_preview_line_color}};{{$sDisabled}}">
+                        <table cellpadding="0" cellspacing="0">
+                        <tr>
+                            <th class="za" style="color:#{{$aSkinCfg.item_general_font_color}};"><p>수량</p></th>
+                            <td style="color:#{{$aSkinCfg.item_general_font_color}};">
+                                <input type="text" onkeyup="Prd.setPrdTotalPrice();" maxlength="4" name="quantity" id="quantity" required='T' class="box_01" style="width:40px; text-align:center;" value="{{$aPrd.product_min}}" />
+                                <img src="http://img.echosting.cafe24.com/mobileWeb/common/btn_quantity_up.png" alt="up" width="30" height="27" onclick="adjustQuantity('+')" align="absmiddle" style="cursor:pointer;" />
+                                <img src="http://img.echosting.cafe24.com/mobileWeb/common/btn_quantity_down.png" alt="down" width="30" height="27" onclick="adjustQuantity('-')" align="absmiddle" style="cursor:pointer;" />
+                            </td>
+                        </tr>
+                        </table>
+                    </li>
+                </ul>
+                {{$sAddSelectedPrdLoop}}
+                <div class="prd_total_price">
+                    <p class="title">총 상품 금액</p>
+                    <p class="price">
+                        <strong id="prdTotalPrice">{{$aPrd.product_sale_price_main}}</strong>
+                    </p>
+                </div>
+                {{$sButton}}
+                <!-- tab -->
+                <div class="{{$tabMenuClass}}">
+                    {{$sTabMenu}}
+                </div>
+
+            <div id="NaverChk_Button" class="NaverCheckOutDisplay" style="clear:both;">
+                {{$nv_content}}
+            </div>
+
+            <!-- 모바일 쿠폰 -->
+            {{$sCouponDownload}}  
+            <!-- //모바일 쿠폰 -->
+            </form>
+
+			
+			<!-- 스마트스킨 상품상세 로더 -->
+			<div class="smartskinDetailImagesLoader">
+					<div class="smartskinDetailImagesTitle">상품상세페이지</div>
+					<div class="smartskinDetailImagesContent">
+					<div id="click_cookie_detailview_loading">
+							<div id="click_cookie_detailview" style="display:none;">
+								<textarea id="product_detail">
+								{{$aPrd.description}}
+								{{$PayInfo}}
+								{{$ShipInfo}}
+								{{$ChangeInfo}}
+								{{$ASInfo}}
+								</textarea>
+							</div>
+					</div>
+					</div>
+			</div>
+
+
+            <!--공통배너-->
+            {{$sCurrentCommBannerTpl}}
+            <!-- //공통배너-->
+
+            <!-- 구세트상품 -->        
+            {{$sSetProdcutList}}
+            <!-- //구세트상품 -->
+
+            <!-- 관련상품 -->
+            {{$sRelationProduct}}
+            <!-- //관련상품 -->
+
+            <!-- top 버튼 -->
+            {{$sTopBtn}}
+            <!-- //top 버튼 -->
+        </div>
+    </div>
+    {{$aPrd.DetailLayer}}
+    <div id="prdDetail" style="display:none;background-color:#{{$aSkinCfg.item_config_bgcolor}};position:absolute; z-index:998; left:0px; top:43px;"></div>
+    {{$sFooter}}
+</div>
+
+<style>
+/* 네이버 체크아웃 Box-sizing Attribute Error
+===================================== */
+.nc_button_box {
+width: 100% !important;
+}
+.nc_button_box .nc_button {
+height: 47px !important;
+}
+.nc_button_ma2_box {
+margin: 0 5px !important;
+border-top: 1px solid #797b80 !important;
+border-bottom: 1px solid #797b80 !important;
+}
+</style>
+
+</body>
+<script type="text/javascript">
+    var sOptions = {{$sOptions}}
+    {{$sBuyIncFunc}}
+</script>

@@ -1,0 +1,23 @@
+﻿<!-- 스마트스킨 표준 CSS : 고객사 커스텀 import.css 적용 -->
+<link href="//www.smartskin.co.kr/data/skin/cafe24_20/standard/custom/smallman/import.css" rel="stylesheet" type="text/css" />
+
+<div id="header">                
+	
+	<div>
+			<a href="{{$sMainUrl}}">{{$sLogoTitle}}</a>
+	</div>
+	
+	<div class="smartskinTopSearch">
+		<!-- 스마트스킨 검색 모듈 시작 -->
+		<form action="{{$sSearchUrl}}" method="GET">
+				<input type="text" name="sSearchValue" value="{{$aParam.sSearchValue}}">
+				<input type="submit" value="검색">
+		</form>
+		<!-- 스마트스킨 검색 모듈 끝 -->
+	</div>
+	
+	<div class="smartskinTopNavigation_1">
+		상단 네비게이션 영역
+	</div>
+	
+</div>
