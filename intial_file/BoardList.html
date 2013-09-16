@@ -1,0 +1,59 @@
+<!-- HTML편집 > 페이지리스트 > 게시판 목록 -->
+
+<body style="background-color:#{{$aSkinCfg.board_bgcolor}};">
+    <div id="wrap">
+        {{$sNavi}}
+        <div id="container">
+            <div id="board">
+                <div class="mTitle">
+                    <h2>{{$sBoardName}} ({{$iBoardCnt}}건)</h2>
+                </div>
+                <!-- 이용안내/이용약관/FAQ탭메뉴 -->
+                {{$sTabMenu}}
+                <div class="mBrdList" id="mReview">
+                    <div class="showNoticeContainer"><input type="checkbox" name="showNotice" id="showNotice" onChange="board.show_notice();"> 공지글 보기</div>
+                    <div class="mButton" style="display:{{$write_button_display}};">
+                        <p><a href="/Mobilef/Board/?url=write&board_no={{$iBoard_no}}&product_no={{$sProduct_no}}&page={{$iPage}}&mode=add&view={{$sView}}" class="tSubmit1"><span>글쓰기</span></a></p>
+                    </div>
+                    <ul>
+                    {{if $aBoard|@count > 0}}
+                        {{foreach from=$aBoard item=val}}
+                        <li {{$val.notice_flag}}>
+                            <a href="{{$val.detail_url}}">
+                                {{if $sBoardName eq '구매후기'}}
+                                    <strong {{$point_display}}><img src="http://img.echosting.cafe24.com/mobileWeb/common/ico_star{{$val.bt_point}}.png" width="50" height="8"></strong> 
+                                {{else}}
+                                    <strong>[{{$val.board_name}}]</strong>
+                                {{/if}}
+                                <strong title="작성자">{{$val.writer_name}}</strong>
+                                <strong title="작성일" style="display:{{$val.use_date_display}};">{{$val.write_date}}</strong>
+                                <span class="summary">
+                                    {{$val.notice_icon}}
+                                    <img src="http://img0001.echosting.cafe24.com/front/type_b/image/common/icon_re.gif" alt="관련글" {{$val.relate_icon_display}} />
+                                    <img src="http://img0001.echosting.cafe24.com/front/type_b/image/common/icon_lock.gif" alt="비공개" {{$val.secret_icon_display}} />
+                                    {{$val.subject}}
+                                    {{$val.comment_cnt}}
+                                    <img src="http://img0001.echosting.cafe24.com/front/type_b/image/common/icon_new.gif" alt="new" {{$val.new_icon_display}} />
+                                    <img src="http://img0001.echosting.cafe24.com/front/type_b/image/common/icon_hit.gif" alt="hit" {{$val.hit_icon_display}} />
+                                    <img src="http://img0001.echosting.cafe24.com/front/type_b/image/common/icon_file.gif" alt="첨부파일" {{$val.file_icon_display}} />
+                                </span>
+                            </a>
+                        </li>
+                        {{/foreach}}
+                    {{else}}
+                        <li style="text-align:center">"등록된 게시물이 없습니다."</li>
+                    {{/if}}
+                    </ul>
+                </div>
+                {{$sPaging}}
+                <!--공통배너-->
+                {{$sCurrentCommBannerTpl}}
+                <!--공통배너 끝-->  
+                <!-- top 버튼 -->
+                {{$sTopBtn}}
+                <!-- //top 버튼 -->
+            </div>
+        </div>
+        {{$sFooter}}
+    </div>
+</body>
