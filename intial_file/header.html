@@ -1,7 +1,13 @@
 <!-- 공통모듈리스트 > 로고/네비게이션 > 로고, 네비게이션 > 템플릿 -->
 <!-- 스마트스킨 표준 CSS -->
 <link href="//www.smartskin.co.kr/data/skin/cafe24_20/standard/custom/smallman/import.css" rel="stylesheet" type="text/css" />
-
+<form name="frmSearchBar" id="frmSearchBar" action="{{$sSearchUrl}}" method="post" style="display:none;">
+	<input type="hidden" name="sSearchOrder" value="{{$aParam.sSearchOrder}}">
+	<input type="hidden" name="listType" value="{{$sListType}}">
+	<input type="hidden" name="category_no" value="{{$sCateCode}}">
+			<input type="text" name="sSearchValue" value="{{$aParam.sSearchValue}}" style="color:#{{$aSkinCfg.comm_search_box_font_color}}; border-color:#{{$aSkinCfg.comm_search_box_border_color}}; background-color:#{{$aSkinCfg.comm_search_box_bgcolor}};" />
+				{{$sSearchBtn}}
+</form>
 <div id="header">
 
 		<a id="hambergerTrigger"></a>
