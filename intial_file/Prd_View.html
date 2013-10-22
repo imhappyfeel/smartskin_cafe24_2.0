@@ -169,6 +169,53 @@ border-bottom: 1px solid #797b80 !important;
 }
 </style>
 
+<div id="smartskinDescriptionPageFixedButtonArea"></div>
+<script>
+/* 2.0 상품상세 버튼 리뉴얼 -- 2013-10-22
+=================================================== */
+//상품고유번호 파싱
+var smartskinParsingPrdNumber = $$('.gPrdAddition .mFeature a')[0].href;
+var smartskinParsingPrdNumber = smartskinParsingPrdNumber.split("product_no=");
+var smartskinParsingPrdNumber = smartskinParsingPrdNumber[1];
+
+//구매후기 개수
+var smartskinParsingReviewCount = $$('.gPrdAddition .mRreview a')[0].innerHTML;
+var smartskinParsingReviewCount = smartskinParsingReviewCount.split("(");
+var smartskinParsingReviewCount = smartskinParsingReviewCount[1].split(")");
+var smartskinParsingReviewCount = smartskinParsingReviewCount[0];
+
+//Q&A 개수
+var smartskinParsingQnaCount = $$('.gPrdAddition .mQnA a')[0].innerHTML;
+var smartskinParsingQnaCount = smartskinParsingQnaCount.split("(");
+var smartskinParsingQnaCount = smartskinParsingQnaCount[1].split(")");
+var smartskinParsingQnaCount = smartskinParsingQnaCount[0];
+
+//연결 주소 리스트
+var smartskinViewMorePath = "/Mobilef/Prd/Viewmore.php?product_no="+smartskinParsingPrdNumber;
+var smartskinReviewPath = "/Mobilef/Board/?board_no=4&product_no="+smartskinParsingPrdNumber+"&view=epil";
+var smartskinQnaPath = "/Mobilef/Board/?board_no=6&product_no="+smartskinParsingPrdNumber+"&view=qna";
+
+//기존 버튼 제거
+$$('.gPrdAddition')[0].style.display="none";
+
+//신규버튼 정의 및 교체
+var smartskinDescriptionPageFixedButtonAreaReplaceContent = "<style>"
++".smartskinDescriptionBtnGroup{position:fixed;right:15px;bottom:15px;width:60px;z-index:999;background:transparent}"
++".smartskinDescriptionBtnGroup div{display:inline-block;width:60px;border-radius:5px;background:rgba(0,0,0,0.5);margin-top:10px;text-align:center;color:#fff;font-size:11px;text-shadow:1px 1px 1px rgba(0,0,0,0.6);z-index:1001;padding:5px 0}"
++".smartskinDescriptionBtnGroup div span{position:absolute;display:inline-block;right:-6px;margin-top:-15px;border:2px solid rgba(255,255,255,1);background:rgba(0,0,0,0.6);border-radius:15px;font-size:11px;line-height:11px;z-index:1001;padding:1px 3px}"
++".smartskinDescriptionBtnGroup a{color:#fff;font-size:11px;text-shadow:1px 1px 1px rgba(0,0,0,0.6)}"
++"</style>"
++"<div class='smartskinDescriptionBtnGroup'>"
++"<div onclick='location.href=\""+smartskinReviewPath+"\";'>상품후기<span>"+smartskinParsingReviewCount+"</span></div>"
++"<div onclick='location.href=\""+smartskinQnaPath+"\";'>Q&A<span>"+smartskinParsingQnaCount+"</span></div>"
++"<a href='#'><div onclick='Prd.AddToCart();'>장바구니</div></a>"
++"<div><a href='"+smartskinViewMorePath+"' target='_blank'>확대보기</a></div>"
++"<a href='#'><div>TOP</div></a>"
++"</div>";
+$('smartskinDescriptionPageFixedButtonArea').replace(smartskinDescriptionPageFixedButtonAreaReplaceContent);
+
+</script>
+
 </body>
 <script type="text/javascript">
     var sOptions = {{$sOptions}}
