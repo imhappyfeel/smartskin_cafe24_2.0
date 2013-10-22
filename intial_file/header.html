@@ -1,6 +1,6 @@
 <!-- 공통모듈리스트 > 로고/네비게이션 > 로고, 네비게이션 > 템플릿 -->
 <!-- 스마트스킨 표준 CSS -->
-<link href="//www.smartskin.co.kr/data/skin/cafe24_20/standard/custom/smallman/import.css" rel="stylesheet" type="text/css" />
+<link href="//www.smartskin.co.kr/data/skin/cafe24_20/standard/custom/mybany/import.css" rel="stylesheet" type="text/css" />
 <form name="frmSearchBar" id="frmSearchBar" action="{{$sSearchUrl}}" method="post" style="display:none;">
 	<input type="hidden" name="sSearchOrder" value="{{$aParam.sSearchOrder}}">
 	<input type="hidden" name="listType" value="{{$sListType}}">
@@ -8,31 +8,81 @@
 			<input type="text" name="sSearchValue" value="{{$aParam.sSearchValue}}" style="color:#{{$aSkinCfg.comm_search_box_font_color}}; border-color:#{{$aSkinCfg.comm_search_box_border_color}}; background-color:#{{$aSkinCfg.comm_search_box_bgcolor}};" />
 				{{$sSearchBtn}}
 </form>
-<div id="header">
+<div id="header_container">
 
-		<a id="hambergerTrigger"></a>
-		
-		
-		<div class="">
-			<ul>
-				<li><span id="smartskinLoginOut">로그인</span></li>
-			</ul>
+		<div class="SMS_Topmodule_01 cb_clear"> <!-- 스마트뷰 topmodule_01 -->
+			<div class="container_Box cb_clear">
+				<ul>
+					<li><b id="smartskinLoginOut">로그인</b><span>|</span></li>
+					<li onclick="location.href='/myshop/index.html'">마이페이지<span>|</span></li>
+					<li onclick="location.href='/order/basket.html'">장바구니<span>|</span></li>	
+					<li onclick="location.href='/myshop/wish_list.html'">관심상품</li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="SMS_Topmodule_02 cb_clear"> <!-- 스마트뷰 topmodule_02 -->
+			<div class="container_Box cb_clear">
+				<h1><a href="{{$sMainUrl}}">{{$sLogoTitle}}</a></h1>
+			</div>
 		</div>
 		
-		<div>
-			<a href="{{$sMainUrl}}">{{$sLogoTitle}}</a>
+		<div class="SMS_Topmodule_03 cb_clear"> <!-- 스마트뷰 topmodule_03-->
+			<div class="container_Box cb_clear">
+				<ul>
+					<li class="search">
+						<form id="searchForm" action="{{$sSearchUrl}}" method="GET">
+							<input type="text" name="sSearchValue" value="{{$aParam.sSearchValue}}" placeholder="검색">
+							<span onclick="subMitSearch()" class="search_btn"></span>
+						</form>
+					</li>
+				</ul>
+			</div>
+		</div>	
+
+		<div class="SMS_Topmodule_04 cb_clear"> <!-- 스마트뷰 topmodule_04 -->
+			<div class="container_Box cb_clear">
+				<ul>
+					<li onclick="location.href='#'" id="hambergerTrigger"></li>
+					<li onclick="location.href='#'">MENU1<span>|</span></li>
+					<li onclick="location.href='#'">MENU2<span>|</span></li>
+					<li onclick="location.href='#'">MENU3</li>
+				</ul>
+			</div>
 		</div>
 		
-		<div class="smartskinTopSearch">
-		<!-- 스마트스킨 검색 모듈 시작 -->
-        <form action="{{$sSearchUrl}}" method="GET">
-			<input type="text" name="sSearchValue" value="{{$aParam.sSearchValue}}">
-			<input type="submit" value="검색">
-		</form>
-        <!-- 스마트스킨 검색 모듈 끝 -->
+		<div class="SMS_Topmodule_05 cb_clear"> <!-- 스마트뷰 topmodule_05 -->
+			<div class="container_Box cb_clear">
+				<ul>
+					<li onclick="location.href='#'">sud1<span>|</span></li>
+					<li onclick="location.href='#'">sud2<span>|</span></li>
+					<li onclick="location.href='#'">sud3<span>|</span></li>
+					<li onclick="location.href='#'">sud4</li>
+				</ul>
+				<ul>
+					<li onclick="location.href='#'">sud5<span>|</span></li>
+					<li onclick="location.href='#'">sud6<span>|</span></li>
+					<li onclick="location.href='#'">sud7<span>|</span></li>
+					<li onclick="location.href='#'">sud8</li>
+				</ul>
+			</div>
 		</div>
 		
-		<div class="smartskinTopNavigation_1">
-        navigation
+		<div class="SMS_Topmodule_06 cb_clear"> <!-- 스마트뷰 topmodule_06 -->
+			<div class="container_Box cb_clear">
+				<ul>
+					<li><a href="#"><span class="cate1">box1</span></a></li>
+					<li><a href="#"><span class="cate2">box2</span></a></li>
+					<li><a href="#"><span class="cate3">box3</span></a></li>
+					<li><a href="#"><span class="cate4">box4</a></span></li>
+				</ul>
+				<ul>
+					<li><a href="#"><span class="cate5">box5</a></span></li>
+					<li><a href="#"><span class="cate6">box6</a></span></li>
+					<li><a href="#"><span class="cate7">box7</a></span></li>
+					<li><a href="#"><span class="cate8">box8</a></span></li>
+				</ul>
+			</div>
 		</div>
+
 </div>
