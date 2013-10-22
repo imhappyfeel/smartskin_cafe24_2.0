@@ -1,67 +1,123 @@
 <!-- 공통모듈리스트 > 하단푸터 > 상세설정 템플릿 -->
 
-<div class="address">
+	<div id="footer_container" module="Layout_footer">
 
-<div class="container">
-        <div class="row">
-                <div class="eight columns">
-						
-						<div class="mini_memu">
+		<div class="SMS_BottomModule_06 cb_clear container"> <!-- 스마트뷰 BottomModule_06 -->
+			<div class="container_Box cb_clear">
+				<div class="body">
+					<ul>
+						<li><a href="#" class="qkm_01">quick1</a></li>
+						<li><a href="#" class="qkm_02">quick2</a></li>
+						<li><a href="#" class="qkm_03">quick3</a></li>
+						<li><a href="#" class="qkm_04">quick4</a></li>
+					</ul>
+					<ul>
+						<li><a href="#" class="qkm_05">quick5</a></li>
+						<li><a href="#" class="qkm_06">quick6</a></li>
+						<li><a href="#" class="qkm_07">quick7</a></li>
+						<li><a href="#" class="qkm_08">quick8</a></li>
+					</ul>
+					<ul>
+						<li><a href="#" class="qkm_09">quick9</a></li>
+						<li><a href="#" class="qkm_10">quick10</a></li>
+						<li><a href="#" class="qkm_11">quick11</a></li>
+						<li><a href="#" class="qkm_12">quick12</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		
+		<div class="SMS_BottomModule_07 cb_clear container"> <!-- 스마트뷰 BottomModule_07 -->
+			<div class="container_Box cb_clear">
+				<div class="body">
+					<ul>
+						<li onclick="location.href='#'">quick1<span>|</span></li>
+						<li onclick="location.href='#'">quick2<span>|</span></li>
+						<li onclick="location.href='#'">quick3</li>
+					</ul>
+					<ul>
+						<li onclick="location.href='#'">quick4<span>|</span></li>
+						<li onclick="location.href='#'">quick5<span>|</span></li>
+						<li onclick="location.href='#'">quick6</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<div class="SMS_BottomModule_01 cb_clear"> <!-- 스마트뷰 BottomModule_01 -->
+			<div class="container_Box cb_clear container">
+				<div class="body">
+					<ul>
+						<li onclick="location.href='/myshop/recent_list.html'">최근본상품<span>|</span></li>
+						<li onclick="location.href='window.location.href='/board/product/list.html?board_no=3'">FAQ<span>|</span></li>
+						<li onclick="location.href='{{$aLinkInfo.pc_url}}'">PC버전</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		
+		<div class="container"> <!-- 스켈레톤 -->
+			<div class="row">
+				<div class="eight columns">
+				
+					<div class="SMS_BottomModule_02"> <!-- 스마트뷰 BottomModule_02 -->
+						<div class="container_Box">
+							<div class="title">CALL CENTER</div>
+							<div class="body">
 								<ul>
-									<p>QUICK MENU</P>
+									<!--li>{$runtime}</li-->
+									<li>
+									고객센터: AM 10:00 ~ PM 17:00 (월~금)<br>
+									점심시간 PM 13:00 ~ PM 14:00<br>
+									토요일, 일요일 공휴일 게시판을 이용해 주세요.
+									</li>
+									<li>전화 : <span class="cs_center">xxxx-xxxx</span></li>
+									<li><a href="tel:{$phone}">고객센터 연결하기</a></li>
 								</ul>
-								<ul>
-									<li><a href="/Mobilef/Member/?url=agree">회원가입</a></li>
-									<li><a href="/Mobilef/Board/?board_no=8">이벤트</a></li>
-									<li><a href="/Mobilef/Mypage/Order/index.php">주문내역</a></li>
-								</ul>
-								<ul>
-									<li><a href="/Mobilef/Mypage/Coupon/index.php">마이 쿠폰</a></li>
-									<li><a href="/Mobilef/Mall/Guide.php">Q&A</a></li>
-									<li><a href="{{$aLinkInfo.pc_url}}">PC버전</a></li>
-								</ul>
+							</div>
 						</div>
-                        
-                </div>
-
-                <div class="eight columns">
-                
-						<div class="cs_center">
+					</div>
+					
+				</div>	
+				
+				<div class="eight columns">
+				
+					<div class="SMS_BottomModule_03"> <!-- 스마트뷰 BottomModule_03 -->
+						<div class="container_Box">
+							<div class="title">COMPANY</div>
+							<div class="body">
 								<ul>
-										<li class="callbox"><a href="tel:000">고객센터 연결하기</a></li>
-										<li><p>am 10:00 ~ pm 5:00 토,일요일 공휴일 휴무<br>LUNCH pm 1:00 ~ pm 2:00</p></li>
-										<!--li><a href="{{$aLinkInfo.pc_url}}">PC버전</a></li-->
+									<li>상점명 : XXX</li>
+									<li>대표 : XXX | 대표전화 : XXXX-XXXX</li>
+									<li>주소 : XXX XXXXXXX XXX</li>
+									<li>사업자등록번호 : XXXXXXXXXX</li>
+									<li>통신판매업 신고 : XXXXXXXXXX</li>
+									<li>개인정보관리책임자 : XXX</li>
 								</ul>
+							</div>
 						</div>
-                
-                </div>
-                
-                <div class="sixteen columns">
-                
-                        <div class="company_info" style="border-top:0">
-                                <ul>
-                                        <li>
-                                                <span>상호명 : XXX </span>
-                                                <span>대표 : XXX</span>
-                                                <span>사업자등록번호 : XXX</span> 
-                                                <span>통신판매업 제 xxx XXX호</span>
-                                                <span>주소 : xxx </span>
-                                                <span>개인정보책입관리자 : XXX </span>
-                                        </li>
-                                </ul>
-                        </div>
-                        
-                </div>
-                
-        </div>
-</div>
+					</div>
+					
+				</div>
+			</div>
+		</div>
 
-</div>
+		<div class="SMS_BottomModule_04 cb_clear"> <!-- 스마트뷰 BottomModule_04 -->
+			<div class="container_Box cb_clear"><!--/company_name/-->ⓒ All right reserved.</div>
+		</div>
+		
+		<div class="SMS_BottomModule_05 cb_clear"> <!-- 스마트뷰 BottomModule_05 -->
+			<div class="container_Box cb_clear container">
+				<div class="body">
+					<ul>
+						<li>상점명 : XXX <span>|</span> 대표 : XXX <span>|</span> 대표전화 : XXXX-XXXX <span>|</span> 주소 : XXX XXXXXXX XXX <span>|</span> 사업자등록번호 : XXXXXXXXXX <span>|</span> 통신판매업 신고 : XXXXXXXXXX <span>|</span> 개인정보관리책임자 : XXX</li>
+						<li><b>COMPANY</b> ⓒ All right reserved.</li>
+					</ul>
+				</div>
+			</div>
+		</div>
 
-<div class="copyRight">
-<span>Company ⓒ All Rights Reserved.</span>
-<span onclick="location.href='{{$aLinkInfo.pc_url}}'">PC버전</span>
-</div>
+	</div>
 
 </div></div></div><!-- #wrap End (hamberger & basement Simple Include) | Buffer Div Close Area -->
 
@@ -93,4 +149,4 @@
 <div class="basementCopyright">Company ⓒ All Rights Reserved.</div>
 </div>
 <!-- </div> Real basementContainer End is a origin #wrap End tag at each pages -->
-<script src="//www.smartskin.co.kr/data/skin/cafe24_20/standard/js/CommonJs20.js"></script>
+<script src="//www.smartskin.co.kr/data/skin/cafe24_20/standard/js/CommonJs20_mybany.js"></script>
