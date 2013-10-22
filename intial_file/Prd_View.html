@@ -1,4 +1,4 @@
-﻿<!-- 페이지 리스트 > 상품 상세 -->
+<!-- 페이지 리스트 > 상품 상세 -->
 <body style="background-color:#{{$aSkinCfg.item_config_bgcolor}};">
     <div id="wrap">
     {{$sNavi}}
@@ -82,8 +82,8 @@
                             <th class="za" style="color:#{{$aSkinCfg.item_general_font_color}};"><p>수량</p></th>
                             <td style="color:#{{$aSkinCfg.item_general_font_color}};">
                                 <input type="text" onkeyup="Prd.setPrdTotalPrice();" maxlength="4" name="quantity" id="quantity" required='T' class="box_01" style="width:40px; text-align:center;" value="{{$aPrd.product_min}}" />
-                                <img src="http://img.echosting.cafe24.com/mobileWeb/common/btn_quantity_up.png" alt="up" width="30" height="27" onclick="adjustQuantity('+')" align="absmiddle" style="cursor:pointer;" />
-                                <img src="http://img.echosting.cafe24.com/mobileWeb/common/btn_quantity_down.png" alt="down" width="30" height="27" onclick="adjustQuantity('-')" align="absmiddle" style="cursor:pointer;" />
+                                <img src="http://img.echosting.cafe24.com/mobileWeb/common/btn_quantity_up.png" alt="up" width="30" height="27" onclick="adjustQuantity('+')" align="absmiddle" style="cursor:pointer; vertical-align:middle;" />
+                                <img src="http://img.echosting.cafe24.com/mobileWeb/common/btn_quantity_down.png" alt="down" width="30" height="27" onclick="adjustQuantity('-')" align="absmiddle" style="cursor:pointer; vertical-align:middle;" />
                             </td>
                         </tr>
                         </table>
